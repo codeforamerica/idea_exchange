@@ -1,0 +1,32 @@
+%h1= t('.title')
+%p= link_to t('.new_location'), new_location_path
+
+%table
+  %thead
+    %tr
+      %th= Location.human_attribute_name :street
+      %th= Location.human_attribute_name :apt
+      %th= Location.human_attribute_name :pobox
+      %th= Location.human_attribute_name :neighborhood
+      %th= Location.human_attribute_name :city
+      %th= Location.human_attribute_name :state
+      %th= Location.human_attribute_name :zip
+      %th= Location.human_attribute_name :lattitude
+      %th= Location.human_attribute_name :longitude
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for location in @locations
+      %tr{ :class => cycle(:odd, :even) }
+        %td= location.street
+        %td= location.apt
+        %td= location.pobox
+        %td= location.neighborhood
+        %td= location.city
+        %td= location.state
+        %td= location.zip
+        %td= location.lattitude
+        %td= location.longitude
+        %td.action= link_to t('show'), location
+        %td.action= link_to t('edit'), edit_location_path(location)
+        %td.action= link_to t('destroy'), location, :confirm => t('are_you_sure'), :method => :delete

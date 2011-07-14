@@ -1,0 +1,101 @@
+// Place all the styles related to the ideas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bourbon';
+
+form {
+    margin-top: 30px;
+
+    label {
+        font-size: 14px;
+    }
+
+    .field {
+        margin-top: 10px;
+    }
+}
+
+#location_pobox {
+    width: 20%;
+    float: left;
+}
+
+#location_neighborhood {
+    width: 40%;
+    float: left;
+}
+
+#location_city {
+    width: 30%;
+    float: left;
+    clear: left;
+}
+
+#location_state {
+    width: 3em;
+    float: left;
+}
+
+#location_zip {
+    width: 20%;
+}
+
+.field {
+    margin: 0;
+    padding: 0 5px;
+}
+
+.addr_row, .form_row {
+  margin: 5px 0;
+  clear: both;
+}
+
+.form_row {
+    padding: 5px 5px;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+label .bold {
+    font-weight: bold;
+}
+
+#idea_players, label[for=idea_players] {
+    width: 67%;
+    float: left;
+}
+
+#idea_timeline {
+    float: right;
+}
+
+label[for=idea_body] {
+    float: left;
+    clear: both;
+    margin-top: 10px;
+}
+label[for=idea_timeline] {
+    float: right;
+}
+
+
+input[type=submit] {
+    @include button(pill, #444);
+    position: relative;
+    right: -80%;
+    margin: 10px 5px 30px 5px;
+    font-family: Muli, sans;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+textarea {
+    height: 125px;
+    width: 100%;
+}
+
+#location_street {
+    width: 62%;
+}

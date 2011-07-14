@@ -1,0 +1,14 @@
+.row
+  .twocol
+  .eightcol
+    %h1= t '.title'
+    %p
+      = link_to t('back'), ideas_path
+      = link_to t('edit'), edit_idea_path(@idea)
+
+    %dl
+      %dt= Idea.human_attribute_name :title
+      %dd= @idea.title
+      %dt= Idea.human_attribute_name :body
+      %dd= @idea.body
+  .twocol.last

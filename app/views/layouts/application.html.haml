@@ -1,0 +1,76 @@
+!!! 5
+
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ] <html lang="en" class="no-js ie7">
+/[if IE 8 ] <html lang="en" class="no-js ie8">
+/[if IE 9 ] <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+%head
+
+  %meta{:charset => "utf-8"}
+  %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+
+  %title
+    IdeaExchange
+      
+  %meta{:name => "description", :content => ""}
+  %meta{:name => "author", :content => ""}
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
+  %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+  %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}
+
+  = stylesheet_link_tag    "application"
+  %link{:href => 'http://fonts.googleapis.com/css?family=Muli:light,regular&v1', :rel => 'stylesheet', :type => 'text/css'}
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+%body
+  %p.notice
+    = notice
+  %p.alert
+    = alert
+
+  .container
+    #topbar.row
+      .twocol
+      .eightcol
+        #user
+          - if user_signed_in?
+            = current_user.email
+            Not you? 
+            = link_to "Log out", destroy_user_session_get_path
+          - else
+            Have an account?
+            = link_to "Sign in", new_user_session_path
+            or
+            = link_to "Register", new_user_registration_path
+
+        #search
+      .twocol.last
+    #banner.row
+      .twocol
+      .eightcol
+        %a{:href => '/'}
+          %span.bold CODE
+          for
+          %span.light AMERICA
+
+      .twocol.last
+    %nav.row
+      .twocol
+      #navbar.eightcol
+        %span.star
+          &#9734;
+        = link_to 'Join the Conversation', new_idea_path
+        %span.star
+          &#9734;
+        = link_to 'See what People are Saying', ideas_path
+        %span.star
+          &#9734;
+      .twocol.last
+
+    = yield
+
+

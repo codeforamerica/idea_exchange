@@ -1,0 +1,16 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), comments_path
+  = link_to t('edit'), edit_comment_path(@comment)
+
+%dl
+  %dt= Comment.human_attribute_name :body
+  %dd= @comment.body
+  %dt= Comment.human_attribute_name :approved
+  %dd= @comment.approved
+  %dt= Comment.human_attribute_name :flagged
+  %dd= @comment.flagged
+  %dt= Comment.human_attribute_name :user_id
+  %dd= @comment.user_id
+  %dt= Comment.human_attribute_name :idea_id
+  %dd= @comment.idea_id

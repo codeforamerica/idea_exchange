@@ -1,0 +1,52 @@
+- @timelines = ["I don't know", 'Immediately', 'A Month',        |
+              'Three Months', 'Half a Year', 'Nine Months',      |
+              'A Year', 'A Couple Years', 'Five Years']          |
+
+
+= form_for(@idea) do |f|
+  - if @idea.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@idea.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+      - @idea.errors.full_messages.each do |msg|
+        %li= msg
+  
+  .field
+    = f.label :title, '<span class="bold">We can:</span> (title)'.html_safe
+    %br/
+    = f.text_field :title, :placeholder => "Increase participation in..."
+  .field
+    = f.label :purpose, '<span class="bold">In order to:</span> (purpose)'.html_safe
+    %br/
+    = f.text_field :purpose, :placeholder => "Renew our neighborhood's ..."
+  .form_row
+    = f.label :players, '<span class="bold">Affecting/Working with:</span> (whom?)'.html_safe
+    = f.label :timeline, '<span class="bold">Within:</span> (timeline)'.html_safe
+    = f.text_field :players, :placeholder => 'Local churches and police precincts...'
+    = f.select :timeline, @timelines.each {|t| [t, t] }
+  .field
+    = f.label :body, '<span class="bold">By:</span> (idea body)'.html_safe
+    %br/
+    = f.text_area :body, :placeholder => 'Creating a better directory per neigh...'
+  .field
+    = fields_for @idea.build_location do |loc|
+      != f.label :location, '<span class="bold">Where?</span> (defaults to your location)'.html_safe
+      %br/
+
+      .addr_row
+        = loc.text_field :street, :placeholder => 'Street'
+
+      .addr_row
+        = loc.text_field :pobox, :placeholder => 'PO Box'
+
+        = loc.text_field :neighborhood, :placeholder => 'Neighborhood'
+
+      .addr_row
+        = loc.text_field :city, :placeholder => 'City'
+
+        = loc.text_field :state, :placeholder => 'State'
+
+        = loc.text_field :zip, :placeholder => 'Zip Code'
+
+  .actions
+    = f.submit 'Share'

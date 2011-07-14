@@ -1,0 +1,21 @@
+%h1
+  Listing authentications
+
+%table
+  %tr
+    %th
+      Provider
+    %th
+      UID
+    %th
+    %th
+    %th
+
+- @authentications.each do |authentication|
+  %tr
+    %td= authentication.provider
+    %td= authentication.uid
+    %td= link_to 'Destroy', authentication, confirm: 'Are you sure?', method: :delete
+%br/
+
+= link_to 'New Auth', new_user_session_path

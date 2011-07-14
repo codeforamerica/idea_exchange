@@ -1,0 +1,20 @@
+%h1= t('.title')
+%p= link_to t('.new_tag'), new_tag_path
+
+%table
+  %thead
+    %tr
+      %th= Tag.human_attribute_name :approved
+      %th= Tag.human_attribute_name :flagged
+      %th= Tag.human_attribute_name :title
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for tag in @tags
+      %tr{ :class => cycle(:odd, :even) }
+        %td= tag.approved
+        %td= tag.flagged
+        %td= tag.title
+        %td.action= link_to t('show'), tag
+        %td.action= link_to t('edit'), edit_tag_path(tag)
+        %td.action= link_to t('destroy'), tag, :confirm => t('are_you_sure'), :method => :delete

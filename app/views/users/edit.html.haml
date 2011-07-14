@@ -1,0 +1,8 @@
+.twocol
+.eightcol
+  %h1= t '.title'
+  %p
+    = link_to t('back'), users_path
+    = link_to t('show'), @user
+  = render 'form'
+.twocol

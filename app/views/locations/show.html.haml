@@ -1,0 +1,24 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), locations_path
+  = link_to t('edit'), edit_location_path(@location)
+
+%dl
+  %dt= Location.human_attribute_name :street
+  %dd= @location.street
+  %dt= Location.human_attribute_name :apt
+  %dd= @location.apt
+  %dt= Location.human_attribute_name :pobox
+  %dd= @location.pobox
+  %dt= Location.human_attribute_name :neighborhood
+  %dd= @location.neighborhood
+  %dt= Location.human_attribute_name :city
+  %dd= @location.city
+  %dt= Location.human_attribute_name :state
+  %dd= @location.state
+  %dt= Location.human_attribute_name :zip
+  %dd= @location.zip
+  %dt= Location.human_attribute_name :lattitude
+  %dd= @location.lattitude
+  %dt= Location.human_attribute_name :longitude
+  %dd= @location.longitude

@@ -1,0 +1,31 @@
+= form_for(@comment) do |f|
+  - if @comment.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@comment.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+      - @comment.errors.full_messages.each do |msg|
+        %li= msg
+  
+  .field
+    = f.label :body
+    %br
+    = f.text_field :body
+  .field
+    = f.label :approved
+    %br
+    = f.check_box :approved
+  .field
+    = f.label :flagged
+    %br
+    = f.check_box :flagged
+  .field
+    = f.label :user_id
+    %br
+    = f.number_field :user_id
+  .field
+    = f.label :idea_id
+    %br
+    = f.number_field :idea_id
+
+  .actions
+    = f.submit

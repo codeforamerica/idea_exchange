@@ -1,0 +1,47 @@
+= form_for(@location) do |f|
+  - if @location.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@location.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+      - @location.errors.full_messages.each do |msg|
+        %li= msg
+  
+  .field
+    = f.label :street
+    %br
+    = f.text_field :street
+  .field
+    = f.label :apt
+    %br
+    = f.text_field :apt
+  .field
+    = f.label :pobox
+    %br
+    = f.text_field :pobox
+  .field
+    = f.label :neighborhood
+    %br
+    = f.text_field :neighborhood
+  .field
+    = f.label :city
+    %br
+    = f.text_field :city
+  .field
+    = f.label :state
+    %br
+    = f.text_field :state
+  .field
+    = f.label :zip
+    %br
+    = f.number_field :zip
+  .field
+    = f.label :lattitude
+    %br
+    = f.text_field :lattitude
+  .field
+    = f.label :longitude
+    %br
+    = f.text_field :longitude
+
+  .actions
+    = f.submit

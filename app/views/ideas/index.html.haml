@@ -1,0 +1,17 @@
+.row
+  .twocol
+  .eightcol
+    #ideas
+      - @ideas.each do |idea|
+        %div{:class => [cycle(:odd, :even), 'idea']}
+          .idea_title= idea.title
+          .idea_preview= idea.body
+          .idea_date= idea.updated_at
+          .idea_upvotes
+            = idea.upvotes
+            belive this idea warrents attention
+          .idea_downvotes
+            = idea.downvotes
+            have voted this idea down
+          .idea_rating= idea.rating
+  .twocol.last

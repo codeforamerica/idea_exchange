@@ -1,0 +1,24 @@
+%h1= t('.title')
+%p= link_to t('.new_comment'), new_comment_path
+
+%table
+  %thead
+    %tr
+      %th= Comment.human_attribute_name :body
+      %th= Comment.human_attribute_name :approved
+      %th= Comment.human_attribute_name :flagged
+      %th= Comment.human_attribute_name :user_id
+      %th= Comment.human_attribute_name :idea_id
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for comment in @comments
+      %tr{ :class => cycle(:odd, :even) }
+        %td= comment.body
+        %td= comment.approved
+        %td= comment.flagged
+        %td= comment.user_id
+        %td= comment.idea_id
+        %td.action= link_to t('show'), comment
+        %td.action= link_to t('edit'), edit_comment_path(comment)
+        %td.action= link_to t('destroy'), comment, :confirm => t('are_you_sure'), :method => :delete

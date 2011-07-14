@@ -1,0 +1,120 @@
+@import 'bourbon';
+$cfa-red: #CB2A3C;
+$cfa-blue: #3C9BD6;
+
+#topbar {
+    background-color: #444;
+    color:            #fff;
+    @include linear-gradient(#666, #333);
+    font-size: 16px;
+    padding: 6px 4px;
+
+    a {
+        color: #ebebeb;
+        text-decoration: none;
+        text-shadow: #222 1px 1px 1px;
+    }
+
+    a:hover {
+       color: #fff;
+    }
+}
+
+#banner {
+    font-size: 54px;
+    line-height: 64px;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: #444;
+    }
+
+    .bold {
+        font-weight: 700;
+        color: $cfa-red;
+    }
+
+    .light {
+        font-weight: 200;
+        color: $cfa-blue;
+    }
+}
+
+#sidebar {
+    margin-top: 30px;
+
+    input[type=submit] {
+        float: right;
+        @include button(pill, #444);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+    textarea {
+        height: 100px;
+        width: 100%;
+    }
+
+    .leader {
+        font-size: 36px;
+        padding: 12px;
+    }
+
+    .copy {
+
+        p {
+            padding-top: 10px;
+            font-size: 14px;
+            text-indent: 10px;
+        }
+    }
+
+    .field {
+        padding: 10px 0;
+    }
+}
+
+#signin, #signup {
+
+    float: left;
+
+    a {
+        text-decoration: none;
+        color: #222;
+        text-shadow: #bbb 1px 1px 1px;
+        float: left;
+        clear: both;
+    }
+
+    input[type=submit] {
+        float: right;
+        @include button(pill, #444);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+   h2 {
+        font-size: 24px;
+    }
+}
+
+nav {
+    border-top: 6px double #333;
+    border-bottom: 6px double #333;
+    text-align: center;
+    padding: 5px 0;
+
+    a {
+        text-decoration: none;
+        color: #222;
+        text-shadow: #bbb 1px 1px 1px;
+        font-size: 14px;
+    }
+
+    .star {
+        padding: 0 15px;
+    }
+}
