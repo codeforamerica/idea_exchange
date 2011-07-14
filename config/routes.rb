@@ -1,4 +1,27 @@
 IdeaExchange::Application.routes.draw do
+
+  resources :tags
+
+  resources :comments
+
+  resources :ideas
+
+  resources :locations
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy', :as => 'destroy_user_session_get'
+  end
+
+  devise_for :users
+
+  resources :users
+
+  match '/auth/:provider/callback' => 'authentications#create'
+
+  resources :authentications, :only => [:index, :destroy]
+
+  root :to => 'pages#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

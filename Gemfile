@@ -21,6 +21,9 @@ gem 'carrierwave'
 gem 'ancestry'
 gem 'kaminari'
 gem 'haml'
+gem 'passenger'
+gem 'bourbon'
+gem 'heroku'
 
 # Use unicorn as the web server
 # gem 'unicorn'

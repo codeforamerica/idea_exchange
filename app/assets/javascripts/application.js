@@ -6,4 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require modernizr.js
+//= require css3-mediaqueries.js
+//= require jquery.selectBox.min.js
+//= require sitewide.js
 //= require_tree .
